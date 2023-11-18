@@ -1,23 +1,30 @@
+// Ao carregar a página executa a função "inputFocus"
 window.onload = inputFocus;
 
+// Pega o elemento input com ID number
 const inputNumber = document.getElementById('number');
 
+// Adiciona evento no inputNumber de 'keydown', quando receber a tecla "Enter" executa a função calculation
 inputNumber.addEventListener('keydown', (e) => {
-    if (event.key === 'Enter') {
+    if (e.key === 'Enter') {
         calculation();
     }
 });
 
+// Função que deixa o inputNumber em focu
 function inputFocus() {
     inputNumber.focus();
 }
 
+// Pega o elemento "btnCalculation"
 const btnCalculation = document.getElementById('btnCalculation');
 
+// Adiciona evento no btnCalculation de 'click', para executa a função calculation
 btnCalculation.addEventListener('click', () => {
     calculation();
 });
 
+// Função principal, executa varias função para entregar o resultado esperado
 function calculation() {
     const number = getNumber();
 
@@ -31,6 +38,7 @@ function calculation() {
     inputFocus();
 }
 
+// Pega o numero do elemento 'number'
 function getNumber() {
     const inputNumber = document.getElementById('number').value;
     
@@ -39,6 +47,7 @@ function getNumber() {
     return number;
 }
 
+// Cria um array dos números divisíveis por 3 ou 5
 function getNumberArray(number) {
     let numberArray = [];
 
@@ -51,6 +60,7 @@ function getNumberArray(number) {
     return numberArray;
 }
 
+// Soma todos os números doa array menos se o número for igual ao número informado
 function totalArray(numberArray, number) {
     let somar = numberArray.reduce((result, value) => {
         if (value < number) {
@@ -63,6 +73,7 @@ function totalArray(numberArray, number) {
     return somar;
 }
 
+// Imprimi os números do array que foram somandos na página
 function printNumberArray(numberArray) {
     const spanContainer = document.getElementById('array');
 
@@ -73,6 +84,7 @@ function printNumberArray(numberArray) {
     spanContainer.innerHTML = numberArray.reverse();
 }
 
+// Imprimi a soma total do array
 function printResult(total) {
     const spanContainer = document.getElementById('total');
 
