@@ -9,9 +9,41 @@
 
 ### Execução
 
-- Para testar o código pode acessar o link da página: [Desafios](https://eriksvieira.github.io/Escribo/) ou clonar o repositório https://github.com/ErikSVieira/Escribo.git e rodá-lo diretamente em seu computador, não precisa de realizar nenhuma configuração específica.
+- Para testar o código pode acessar o link da página: [Desafios](https://eriksvieira.github.io/Escribo/) ou clonar o repositório https://github.com/ErikSVieira/Escribo.git e rodá-lo diretamente em seu computador abrindo o index.html, não precisa de realizar nenhuma configuração específica.
 
         # git clone https://github.com/ErikSVieira/Escribo.git
+
+- Porém, se você gostaria de passar um arquivo JSON e receber uma respostas, então pode executar os seguinte comando no seu terminal:
+
+        # npm install express
+
+- depois
+
+        # npm run start
+
+- Usando um programa como Composer ou Thunder Client passe o parâmetro JSON abaixo, nesta rota: http://localhost:3000/api/postNumber.
+
+        { 
+            "number": 10
+        }
+
+- Se tudo funcionar você deve receber esta resposta:
+
+        {
+            "total": 23,
+            "array": [
+                9,
+                6,
+                5,
+                3
+            ]
+        }
+
+- No caso de enviar uma letra ou um número negativo esta mensagem será retornada.
+
+        {
+            "erro": "Número inválido. Forneça um número inteiro."
+        }
 
 #
 - Para dúvidas e esclarecimento fico inteiramente à disposição.
