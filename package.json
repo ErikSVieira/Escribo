@@ -1,0 +1,15 @@
+{
+  "name": "escribo",
+  "version": "1.0.0",
+  "description": "- Este projeto tem por objetivo receber um número inteiro positivo, somar todos os número divisíveis por 3 ou 5, sendo menores que o número recebido.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Erik Vieira",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
