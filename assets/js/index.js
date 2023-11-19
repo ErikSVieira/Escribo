@@ -32,7 +32,7 @@ function calculation() {
 
     const total = totalArray(numberArray, number);
 
-    printNumberArray(numberArray);
+    printNumberArray(numberArray, number);
     printResult(total);
 
     inputFocus();
@@ -74,12 +74,14 @@ function totalArray(numberArray, number) {
 }
 
 // Imprimi os números do array que foram somandos na página
-function printNumberArray(numberArray) {
+function printNumberArray(numberArray, number) {
     const spanContainer = document.getElementById('array');
 
     spanContainer.innerHTML = '';
 
-    numberArray.shift();
+    if (number === numberArray[0]) {
+        numberArray.shift();
+    }
 
     spanContainer.innerHTML = numberArray.reverse();
 }
