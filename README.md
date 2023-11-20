@@ -21,7 +21,7 @@
 
         # npm run start
 
-- Usando um programa como Composer ou Thunder Client passe o parâmetro JSON abaixo, nesta rota: http://localhost:3000/api/postNumber.
+- Usando um programa como Composer ou Thunder Client passe o parâmetro JSON abaixo, nesta rota: http://localhost:3000/api/postNumber, pode também testar nessa rota online https://gw5hpl-3000.csb.app/api/number.
 
         { 
             "number": 10
