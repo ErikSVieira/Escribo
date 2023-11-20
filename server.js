@@ -1,14 +1,23 @@
 // Importação do Express e do Body-Parser
 const express = require('express');
-const bodyParser = require('body-parser');
 
 // Configurações 'api' e 'port'
 const api = express();
 const port = 3000;
 
 // Interpretador do JSON
-api.use(bodyParser.json());
-api.use(bodyParser.urlencoded({ extended: true }));
+api.use(express.json());
+api.use(express.urlencoded({ extended: true }));
+
+// Route inicial
+api.use(express.static('./'));
+
+// Page index
+api.get("/", (req, res) => {
+    const indexPath = 'index.html';
+
+    res.sendFile(indexPath);
+});
 
 // Rota para receber numero no JSON
 api.post('/api/postNumber', (req, res) => {
@@ -35,7 +44,7 @@ api.post('/api/postNumber', (req, res) => {
     // res.send(`Resultado encontrado: ${numberArray}, Soma total: ${total}`); // Uma segunda opção	de resposta
 });
 
-// Escutar porta e console que server inicio
+// Escutar porta, start server e imprime no console que server início
 api.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
