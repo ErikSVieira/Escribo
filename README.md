@@ -9,7 +9,7 @@
 
 ### Execução
 
-- Para testar o código pode acessar o link da página: [Desafios](https://eriksvieira.github.io/Escribo/) ou clonar o repositório https://github.com/ErikSVieira/Escribo.git e rodá-lo diretamente em seu computador abrindo o index.html, não precisa de realizar nenhuma configuração específica.
+- Para testar o código pode acessar o link da página: [Desafios - Github](https://eriksvieira.github.io/Escribo/), [Desafio - CodeSandbox](https://gw5hpl-3000.csb.app/) ou clonar o repositório https://github.com/ErikSVieira/Escribo.git e rodá-lo diretamente em seu computador abrindo o index.html, não precisa de realizar nenhuma configuração específica.
 
         # git clone https://github.com/ErikSVieira/Escribo.git
 
@@ -20,6 +20,8 @@
 - depois
 
         # npm run start
+
+Obs: Com server rodando pode testar também o endereço http://localhost:3000 para abrir o index.html.
 
 - Usando um programa como Composer ou Thunder Client passe o parâmetro JSON abaixo, nesta rota: http://localhost:3000/api/postNumber, pode também testar nessa rota online https://gw5hpl-3000.csb.app/api/number.
 
