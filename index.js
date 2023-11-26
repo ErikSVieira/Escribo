@@ -1,8 +1,9 @@
+// Importação do Configuração de banco de dados, bcrypt, jwt, Schema do Usuário e gerador de token
 const { conectar, desConectar } = require("./src/config/db");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Usuario = require("./src/schema/Usuario");
-const gerarToken = require("./src/schema/token");
+const gerarToken = require("./src/js/token");
 
 // Importação do Express
 const express = require("express");
@@ -11,10 +12,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Um get da home para saber se esta tudo ok!
 app.get("/", (req, res) => {
   res.send("Você esta na Rota principal!");
 });
 
+// Teste do gerador de Token opcional
 app.get("/token", async (req, res) => {
   try {
     const token = gerarToken();
@@ -24,7 +27,8 @@ app.get("/token", async (req, res) => {
   }
 });
 
-app.post("/search", async (req, res) => {
+// Buscar usuário atraves token gerado no seu login
+app.get("/search", async (req, res) => {
   let resultado;
   try {
     const authorizationHeader = req.headers.authorization;
@@ -34,7 +38,8 @@ app.post("/search", async (req, res) => {
     }
 
     const token = authorizationHeader.split(" ")[1];
-    const decodedToken = jwt.verify(token, "sua_chave_secreta");
+    const decodedToken = jwt.verify(token, "sua_chave_secreta"); 
+    // "sua_chave_secreta" deve ser alterado para aumentar a segurança
 
     await conectar();
     resultado = await Usuario.findById(decodedToken.id);
@@ -53,9 +58,9 @@ app.post("/search", async (req, res) => {
   }
 });
 
+// Conecta usuário no sistema
 app.post("/sign-in", async (req, res) => {
   let resultado;
-
   try {
     await conectar();
     resultado = await Usuario.findOne({ email: req.body.email });
@@ -98,6 +103,7 @@ app.post("/sign-in", async (req, res) => {
   }
 });
 
+// Cria novo usuário
 app.post("/sign-up", async (req, res) => {
   let resultado;
   try {
